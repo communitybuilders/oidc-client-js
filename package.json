@@ -9,6 +9,9 @@
     "test": "mocha --compilers js:babel-register test/unit/*.spec.js",
     "all": "gulp build & mocha --compilers js:babel-register test/unit/*.spec.js"
   },
+  "files": [
+      "lib/*"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/IdentityModel/oidc-client-js.git"
