@@ -45,7 +45,16 @@ export class SigninRequest {
             response_mode = SigninRequest.isCode(response_type) ? "query" : null;
         }
 
-        this.state = new SigninState({ nonce: oidc, 
+        let id;
+        if (data) {
+            if (typeof data === 'object') {
+                id = JSON.stringify(data);
+            }else {
+                id = data;
+            }
+        }
+
+        this.state = new SigninState({ id, nonce: oidc,
             data, client_id, authority, redirect_uri, 
             code_verifier: code, 
             request_type, response_mode,
